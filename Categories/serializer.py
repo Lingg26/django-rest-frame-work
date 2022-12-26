@@ -6,7 +6,6 @@ class CategorySerializer(serializers.Serializer):
     slug= serializers.CharField(max_length=255)
     createdAt= serializers.DateTimeField(read_only=True)
     updatedAt= serializers.DateTimeField(read_only=True)
-    categoryList = serializers.CharField(max_length=255)
     class Meta:
         model= Category
     def create(self, data):
@@ -17,6 +16,5 @@ class CategorySerializer(serializers.Serializer):
         instance.slug=data.get('slug', instance.slug)
         instance.createdAt=data.get('createdAt', instance.createdAt)
         instance.updatedAt=data.get('updatedAt', instance.updatedAt)
-        instance.categoryList = data.get('categoryList', instance.categoryList)
         instance.save()
         return instance
