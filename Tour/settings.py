@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'TourCodes',
     'CheckOut',
     'ProductImages',
+    'corsheaders',
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -59,8 +60,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'Tour.urls'
 
 TEMPLATES = [
